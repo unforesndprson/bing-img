@@ -9,28 +9,272 @@
 	margin:0;
 	padding:0;
 }
+ul,li{
+	list-style: none;
+}
+@keyframes body-bg{
+	0%{
+		background-color: #ccc;
+	}
+	50%{
+		background-color: #393939;
+	}
+	100%{
+		background-color: #ccc;
+	}
+}
 body{
 	text-align: center;
+	background-color:#393939;
+	animation:body-bg 8s infinite;
+	-webkit-animation:body-bg 8s infinite;
 }
-a{
+.img-box{
+	width: 85%;
 	display: inline-block;
+	position: relative;
 	overflow: hidden;
-
+	margin-top:15px;
+	border-radius: 2px;
+	transition: all 0.5s ease;
+	box-shadow: 0 0 10px #fff;
 }
-img{
-	float: left;
-	height: 50vw;
-
+.img-box:hover{
+	box-shadow: 0 0 50px #fff;
 }
+.img-bing{
+	width: 100%;
+}
+
+.img-download{
+	width: 100%;
+	height:100%;
+}
+.img-box>a{
+	display: block;
+	border-radius: 50%;
+	position: absolute;
+	bottom:30px;
+	right:-100px;
+	width: 5vw;
+	height:5vw;
+	transition: all 0.5s ease;
+	opacity: 0.6;
+}
+
+.img-type{
+	color:#363636;
+	padding: 10px 60px 10px 10px ;
+	font-weight:bold;
+	background-color: #a8a8a8;
+	border-radius: 5px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -100px;
+	transition: all 0.5s ease;
+	opacity: 0.6;
+}
+@keyframes select{
+	0%{
+		transform: translateY(-50%) translateX(0%);
+	}
+	10%{
+		transform: translateY(-50%) translateX(-30%)
+	}
+	20%{
+		transform: translateY(-50%) translateX(0%)
+	}
+	30%{
+		transform: translateY(-50%) translateX(30%)
+	}
+	40%{
+		transform: translateY(-50%) translateX(0%)
+	}
+	45%{
+		transform: translateY(-50%) translateX(-10%)
+	}
+	50%{
+		transform: translateY(-50%) translateX(0%)
+	}
+	55%{
+		transform: translateY(-50%) translateX(10%)
+	}
+	60%{
+		transform: translateY(-50%) translateX(0%)
+	}
+	70%{
+		transform: translateY(-50%) translateX(-3%)
+	}
+	80%{
+		transform: translateY(-50%) translateX(0%)
+	}
+
+	90%{
+		transform: translateY(-50%) translateX(3%)
+	}
+	100%{
+		transform: translateY(-50%) translateX(0%)
+	}
+}
+.size-select{
+	cursor: pointer;
+	font-size: 12px;
+	color:#fff;
+	padding:2px 5px;
+	font-weight:bold;
+	background-color: #393939;
+	border-radius: 5px;
+	position: absolute;
+	right: 5px;
+	top:50%;
+	transform: translateY(-50%);
+	
+}
+.img-type:hover >.size-select{
+	animation: select 0.5s ;
+}
+.size-select>ul{
+	position: absolute;
+	right: -80px;
+	top:-25px;
+	overflow: hidden;
+	width: 0;
+	transition: all 0.3s ease;
+	z-index: 999;
+}
+.size-select>ul>li{
+	padding: 5px 0;
+	border-radius: 2px;
+	z-index: 999;
+}
+.size-select>ul>li:hover{
+	background-color: #969696;
+}
+
+.size-mob{
+		display: block;
+}
+.size-select-mob{
+	display: block;
+	width: 40%;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #0ed7a1;
+	color:#fff;
+	font-weight: bold;
+	border-radius: 5px;
+}
+
+@media(min-width: 1025px){
+	.img-box{
+		width: auto;
+	}
+	.img-bing{
+		width: auto;
+		height: 45vw;
+	}
+	.img-box:hover >a{
+		right:20px;
+	}
+	.img-box>a:hover{
+		opacity: 1;
+	}
+	.img-box:hover >.img-type{
+	bottom: 40px;
+	}
+	.img-box>.img-type:hover{
+		opacity: 1;
+	}
+	.size-mob{
+		display: none;
+	}
+}
+
 </style>
 <body>
 
-<a href="https://cn.bing.com/az/hprichbg/rb/KonikHorses_ZH-CN11260575341_1920x1080.jpg" download="bing_img"><img src="https://cn.bing.com/az/hprichbg/rb/KonikHorses_ZH-CN11260575341_1920x1080.jpg" alt="bing-img"></a>
 
+<div class="img-box">
+	<img class="img-bing" src="https://cn.bing.com/az/hprichbg/rb/KonikHorses_ZH-CN11260575341_1920x1080.jpg" alt="bing-img">
+	<a href="https://cn.bing.com/az/hprichbg/rb/KonikHorses_ZH-CN11260575341_1920x1080.jpg" download="bing_img"><img class="img-download" src="img/download.png"></a>
+	<div class="img-type">
+		<span>1920*1080</span>
+		<div class="size-select">
+			more
+			<ul>
+				<li>1920*1080</li>
+				<li>1366*768</li>
+				<li>480*800</li>
+			</ul>
+		</div>
+	</div>
+	
+</div>
+<div class="size-mob">
+	<div class="size-select-mob">1920*1080</div>
+	<div class="size-select-mob">1366*768</div>
+	<div class="size-select-mob">480*800</div>
+</div>
 </body>
 
 <script type="text/javascript" >
+window.onload=function(){
+	var img_box=document.querySelector('.img-box');
+	var more=document.querySelector('.size-select');
+	var size_ul=document.querySelector('.size-select>ul');
+	var flag_more=true;
+	more.onclick=function(){
+		if(flag_more){
+			flag_more=false;
+			size_ul.style.width=66+'px';
+		}else{
+			flag_more=true;
+			size_ul.style.width=0;
+		}
+	}
+	img_box.onmouseleave=function(){
+		size_ul.style.width=0;
+	}
 
+
+	var size_array=[];
+	size_array[0]='https://cn.bing.com/az/hprichbg/rb/KonikHorses_ZH-CN11260575341_1920x1080.jpg';
+	size_array[1]='https://cn.bing.com/az/hprichbg/rb/KonikHorses_ZH-CN11260575341_1366x768.jpg';
+	size_array[2]='https://cn.bing.com/az/hprichbg/rb/KonikHorses_ZH-CN11260575341_480x800.jpg';
+	var img_mob=document.querySelector('.img-bing');
+	var img_url=document.querySelector('.img-box>a');
+	var size_li=document.querySelectorAll('.size-select>ul>li');
+	var size_li_mob=document.querySelectorAll('.size-select-mob');
+	var size_now=document.querySelector('.img-type>span');
+	var img_type=document.querySelector('.img-type');
+	for(var i=0;i<size_li.length;i++){
+		size_li[i].index=i;
+		size_li[i].onclick=function(){
+			var size_val=this.innerHTML;
+
+			if(this.index==2){
+				img_type.style.left=25+'%';
+			}else{
+				img_type.style.left=50+'%';
+			}
+			
+			size_now.innerHTML=size_val;
+			img_url.href=size_array[this.index];
+			img_mob.src=size_array[this.index];
+		}
+		size_li_mob[i].index=i;
+		size_li_mob[i].onclick=function(){
+			var size_val=this.innerHTML;
+			size_now.innerHTML=size_val;
+			img_url.href=size_array[this.index];
+			img_mob.src=size_array[this.index];
+		}
+	}
+	
+
+
+}
 
 </script>
 </html>
