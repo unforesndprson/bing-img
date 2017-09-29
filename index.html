@@ -226,7 +226,6 @@ body{
 
 <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
 
-
 <script type="text/javascript" >
 window.onload=function(){
 	var img_box=document.querySelector('.img-box');
@@ -280,14 +279,17 @@ window.onload=function(){
 			img_mob.src=size_array[this.index];
 		}
 	}
-	// $.ajax({
-	// 	url:'bing.php',
-		
-	// })
-	
+
+    $.ajax({
+    	url:"https://pu.ddzhan.com/api.php?mod=bing::get::img&n=8",
+    	dataType:'json',	
+    	success:function(res){
+    		console.log(res)
+    	}
+    })
 }
 
 </script>
-<!-- <script type="text/javascript" src="https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN?callback=fun_bing"></script> -->
+
 
 </html>
