@@ -1,0 +1,274 @@
+
+ul,li{
+	list-style: none;
+}
+.hide1{
+	left:-50px!important;
+}
+.hide2{
+	right: -50px!important;
+}
+@keyframes body-bg{
+	0%{
+		background-color: #ccc;
+	}
+	50%{
+		background-color: #393939;
+	}
+	100%{
+		background-color: #ccc;
+	}
+}
+body{
+	text-align: center;
+	background-color:#393939;
+	animation:body-bg 8s infinite;
+	-webkit-animation:body-bg 8s infinite;
+}
+.img-box{
+	width: 85%;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	margin-top:15px;
+	border-radius: 2px;
+	transition: all 0.5s ease;
+	box-shadow: 0 0 10px #fff;
+}
+.img-box:hover{
+	box-shadow: 0 0 50px #fff;
+}
+.img-bing{
+	float:left;
+	width: 100%;
+	color:#0ed7a1;
+}
+
+.img-download{
+	width: 100%;
+	height:100%;
+}
+.img-box>a{
+	display: block;
+	border-radius: 50%;
+	position: absolute;
+	bottom:30px;
+	right:-100px;
+	width: 5vw;
+	height:5vw;
+	transition: all 0.5s ease;
+	opacity: 0.6;
+}
+
+.img-type{
+	color:#363636;
+	padding: 10px 60px 10px 10px ;
+	font-weight:bold;
+	background-color: #a8a8a8;
+	border-radius: 5px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -100px;
+	transition: all 0.5s ease;
+	opacity: 0.6;
+}
+@keyframes select{
+	0%{
+		transform: translateY(-50%) translateX(0%);
+	}
+	10%{
+		transform: translateY(-50%) translateX(-30%)
+	}
+	20%{
+		transform: translateY(-50%) translateX(0%)
+	}
+	30%{
+		transform: translateY(-50%) translateX(30%)
+	}
+	40%{
+		transform: translateY(-50%) translateX(0%)
+	}
+	45%{
+		transform: translateY(-50%) translateX(-10%)
+	}
+	50%{
+		transform: translateY(-50%) translateX(0%)
+	}
+	55%{
+		transform: translateY(-50%) translateX(10%)
+	}
+	60%{
+		transform: translateY(-50%) translateX(0%)
+	}
+	70%{
+		transform: translateY(-50%) translateX(-3%)
+	}
+	80%{
+		transform: translateY(-50%) translateX(0%)
+	}
+
+	90%{
+		transform: translateY(-50%) translateX(3%)
+	}
+	100%{
+		transform: translateY(-50%) translateX(0%)
+	}
+}
+.size-select{
+	cursor: pointer;
+	font-size: 12px;
+	color:#fff;
+	padding:2px 5px;
+	font-weight:bold;
+	background-color: #393939;
+	border-radius: 5px;
+	position: absolute;
+	right: 5px;
+	top:50%;
+	transform: translateY(-50%);
+	
+}
+.img-type:hover >.size-select{
+	animation: select 0.5s ;
+}
+.size-select>ul{
+	position: absolute;
+	right: -80px;
+	top:-25px;
+	overflow: hidden;
+	width: 0;
+	transition: all 0.3s ease;
+	z-index: 999;
+}
+.size-select>ul>li{
+	padding: 5px 0;
+	border-radius: 2px;
+	z-index: 999;
+}
+.size-select>ul>li:hover{
+	background-color: #969696;
+}
+
+.size-mob{
+		display: block;
+}
+.size-select-mob{
+	display: block;
+	width: 40%;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #0ed7a1;
+	color:#fff;
+	font-weight: bold;
+	border-radius: 5px;
+}
+.btn{
+	padding: 5px;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+	background-color: #a8a8a8;
+	border-radius: 4px;
+	position: absolute;
+	top:50%;
+	transform: translateY(-50%);
+	transition: all 0.3s ease;
+	opacity: 0.6;
+	font-weight: bold;
+	color:#363636;
+}
+.btn-prev{
+	left:5px;
+}
+
+.btn-next{
+	right:5px;
+}
+.modal{
+	position: absolute;
+	width: 50%;
+	left: 50%;
+	top:-200px;
+	transform: translateX(-50%);
+	background-color: #a8a8a8;
+	transition: all 0.3s ease;
+	border-radius: 5px;
+	font-weight: bold;
+	color: #363636;
+}
+@keyframes more_opcity{
+	from{opacity: 1}
+	to{opacity: 0.2}
+}
+.more{
+	padding: 5px;
+	color:#363636;
+	font-weight: bold;
+	background-color: #a8a8a8;
+	position: absolute;
+	left:5px;
+	bottom: 5px;
+	border-radius: 4px;
+	opacity: 0.6;
+	animation: more_opcity 1s ease infinite alternate;
+	transition: all 0.3s ease;
+	cursor: pointer;
+	font-size: 10px
+}
+@media(min-width: 1025px){
+	.img-box{
+		width: auto;
+	}
+	.img-bing{
+		width: auto;
+		height: 45vw;
+	}
+	.img-box:hover >a{
+		right:20px;
+	}
+	.img-box>a:hover{
+		opacity: 1;
+	}
+	.img-box:hover >.img-type{
+		bottom: 40px;
+	}
+	.img-box>.img-type:hover{
+		opacity: 1;
+	}
+	.img-box:hover .btn-prev{
+		left:5px;
+	}
+	.img-box:hover .btn-next{
+		right: 5px;
+	}
+	.img-box:hover .more{
+		bottom: 30px;
+	}
+	.btn{
+		padding: 10px;
+		font-size: 30px;
+	}	
+	.btn-prev{
+		left:-50px;
+	}
+	.btn-next{
+		right: -50px;
+	}
+	.btn-prev:hover{
+		opacity: 1;
+	}
+	.btn-next:hover{
+		opacity: 1;
+	}
+	.size-mob{
+		display: none;
+	}
+	.more{
+		padding: 10px;
+		left:20px;
+		bottom: -100px;
+		font-size: 16px;
+	}
+}
+
